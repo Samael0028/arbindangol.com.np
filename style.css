@@ -243,15 +243,23 @@ textarea:focus {
 @media (max-width: 768px) {
   .navbar .container {
     width: 100%;
-    padding: 0 1.5rem; /* Creates space on the left and right edges */
+    padding: 0 1rem; /* Reduced padding for more corner positioning */
   }
+  
+  /* Position hamburger in the corner */
+  .hamburger {
+    display: flex;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
   /* Navbar */
   .nav-links {
     flex-direction: column;
     background-color: #006064;
     position: absolute;
     top: 64px; /* Note: Adjust if navbar height changes */
-    right: 0;
+    right: 0; /* Already positioned to right edge */
     width: 200px;
     padding: 1rem;
     border-radius: 0 0 0 10px;
@@ -259,6 +267,7 @@ textarea:focus {
     transition: transform 0.3s ease-in-out;
     box-shadow: -4px 6px 15px rgba(0,0,0,0.2);
     gap: 1rem;
+    margin: 0; /* Remove any margin that might push it away from edge */
   }
 
   .nav-links.active {
@@ -267,10 +276,6 @@ textarea:focus {
 
   .nav-links li {
     margin-bottom: 1rem;
-  }
-
-  .hamburger {
-    display: flex;
   }
   
   /* Hero */
