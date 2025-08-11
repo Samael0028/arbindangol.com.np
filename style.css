@@ -235,6 +235,10 @@ textarea:focus {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .navbar .container {
+    width: 100%;
+    padding: 0 1.5rem; /* Creates space on the left and right edges */
+  }
   /* Navbar */
   .nav-links {
     flex-direction: column;
