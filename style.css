@@ -56,6 +56,13 @@ body {
   color: #ffd54f;
 }
 
+/* Flex navbar container */
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* Hamburger styles */
 .hamburger {
   display: none;
@@ -82,39 +89,6 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Responsive navbar with hamburger */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    background-color: #006064;
-    position: absolute;
-    top: 64px; /* height of navbar */
-    right: 0;
-    width: 200px;
-    padding: 1rem;
-    border-radius: 0 0 0 10px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    box-shadow: -4px 6px 15px rgba(0,0,0,0.2);
-  }
-
-  .nav-links.active {
-    transform: translateX(0);
-  }
-
-  .nav-links li {
-    margin-bottom: 1rem;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  nav {
-    position: relative;
-  }
-}
-
 /* Animate hamburger to X when active */
 .hamburger.active .bar:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
@@ -126,13 +100,6 @@ body {
 
 .hamburger.active .bar:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Flex navbar container */
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 /* Hero */
@@ -266,13 +233,37 @@ textarea:focus {
   margin-top: auto;
 }
 
-/* Responsive */
+/* Responsive Styles */
 @media (max-width: 768px) {
+  /* Navbar */
   .nav-links {
     flex-direction: column;
+    background-color: #006064;
+    position: absolute;
+    top: 64px; /* Note: Adjust if navbar height changes */
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 0 0 0 10px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -4px 6px 15px rgba(0,0,0,0.2);
     gap: 1rem;
   }
 
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    margin-bottom: 1rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+  
+  /* Hero */
   .hero h1 {
     font-size: 2.2rem;
   }
