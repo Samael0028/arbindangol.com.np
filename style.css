@@ -239,44 +239,55 @@ textarea:focus {
   margin-top: auto;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
-  
-  /* On mobile, hide the desktop nav links... */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #006064;
-    position: absolute;
-    top: 64px; /* Adjust if navbar height changes */
-    right: 0;
-    width: 200px;
-    padding: 1rem;
-    border-radius: 0 0 0 10px;
-    box-shadow: -4px 6px 15px rgba(0,0,0,0.2);
-    gap: 1rem;
-  }
+    /* Keep navbar container relative for absolute positioning */
+    .navbar .container {
+        position: relative; /* Make this the positioning context for absolute children */
+        width: 90%; /* Keep your desired content width */
+        max-width: 1100px; /* Keep your desired content max-width */
+        margin: auto; /* Center the container */
+        padding: 0; /* Remove padding here if you want it to align to the edges of this container */
+        justify-content: space-between; /* Ensures logo left, hamburger right */
+        align-items: center;
+    }
 
-  /* ...and show them only when the menu is active. */
-  .nav-links.active {
-    display: flex;
-  }
+    /* On mobile, hide the desktop nav links... */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #006064;
+        position: absolute; /* This is now relative to .navbar .container */
+        top: 100%; /* Place it right below the navbar */
+        right: 0; /* Aligns to the right edge of .navbar .container */
+        width: 200px;
+        padding: 1rem;
+        border-radius: 0 0 0 10px;
+        box-shadow: -4px 6px 15px rgba(0,0,0,0.2);
+        gap: 1rem;
+    }
 
-  .nav-links li {
-    margin-bottom: 1rem;
-  }
+    /* ...and show them only when the menu is active. */
+    .nav-links.active {
+        display: flex;
+    }
 
-  /* Show the hamburger icon on mobile */
-  .hamburger {
-    display: flex;
-  }
-  
-  /* Adjust hero text size for smaller screens */
-  .hero h1 {
-    font-size: 2.2rem;
-  }
+    .nav-links li {
+        /* You might want to text-align these if the menu is narrow */
+        text-align: right; /* To align the text within the list items to the right */
+        margin-bottom: 1rem;
+    }
 
-  .hero p {
-    font-size: 1rem;
-  }
+    /* Show the hamburger icon on mobile */
+    .hamburger {
+        display: flex;
+    }
+    
+    /* Adjust hero text size for smaller screens */
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
 }
