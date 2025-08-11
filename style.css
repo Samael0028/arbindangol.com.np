@@ -241,44 +241,36 @@ textarea:focus {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .navbar .container {
-    width: 100%;
-    padding: 0 1rem; /* Reduced padding for more corner positioning */
-  }
-  
-  /* Position hamburger in the corner */
-  .hamburger {
-    display: flex;
-    margin-left: auto;
-    margin-right: 0;
-  }
-  
-  /* Navbar */
+  /* Hide the desktop nav links by default on mobile */
   .nav-links {
+    display: none;
     flex-direction: column;
     background-color: #006064;
     position: absolute;
     top: 64px; /* Note: Adjust if navbar height changes */
-    right: 0; /* Already positioned to right edge */
+    right: 0;
     width: 200px;
     padding: 1rem;
     border-radius: 0 0 0 10px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
     box-shadow: -4px 6px 15px rgba(0,0,0,0.2);
     gap: 1rem;
-    margin: 0; /* Remove any margin that might push it away from edge */
   }
 
+  /* When the menu is toggled, display the links as a flex column */
   .nav-links.active {
-    transform: translateX(0);
+    display: flex;
   }
 
   .nav-links li {
     margin-bottom: 1rem;
   }
+
+  /* Show the hamburger menu on mobile */
+  .hamburger {
+    display: flex;
+  }
   
-  /* Hero */
+  /* Hero text adjustments for mobile */
   .hero h1 {
     font-size: 2.2rem;
   }
