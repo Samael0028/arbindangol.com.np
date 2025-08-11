@@ -58,7 +58,7 @@ body {
   color: #ffd54f;
 }
 
-/* Flex navbar container - Modified to push nav to corner */
+/* Flex navbar container - Pushes nav to corner on desktop */
 .navbar .container {
   display: flex;
   justify-content: space-between;
@@ -241,13 +241,14 @@ textarea:focus {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  /* Hide the desktop nav links by default on mobile */
+  
+  /* On mobile, hide the desktop nav links... */
   .nav-links {
     display: none;
     flex-direction: column;
     background-color: #006064;
     position: absolute;
-    top: 64px; /* Note: Adjust if navbar height changes */
+    top: 64px; /* Adjust if navbar height changes */
     right: 0;
     width: 200px;
     padding: 1rem;
@@ -256,7 +257,7 @@ textarea:focus {
     gap: 1rem;
   }
 
-  /* When the menu is toggled, display the links as a flex column */
+  /* ...and show them only when the menu is active. */
   .nav-links.active {
     display: flex;
   }
@@ -265,12 +266,12 @@ textarea:focus {
     margin-bottom: 1rem;
   }
 
-  /* Show the hamburger menu on mobile */
+  /* Show the hamburger icon on mobile */
   .hamburger {
     display: flex;
   }
   
-  /* Hero text adjustments for mobile */
+  /* Adjust hero text size for smaller screens */
   .hero h1 {
     font-size: 2.2rem;
   }
