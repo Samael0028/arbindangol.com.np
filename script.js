@@ -43,3 +43,15 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
     errorEl.style.display = 'block';
   }
 });
+
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('active');
+
+  // Toggle aria-expanded for accessibility
+  const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+  hamburger.setAttribute('aria-expanded', !expanded);
+});
