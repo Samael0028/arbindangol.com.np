@@ -43,6 +43,8 @@ body {
   list-style: none;
   display: flex;
   gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-link {
@@ -56,11 +58,15 @@ body {
   color: #ffd54f;
 }
 
-/* Flex navbar container */
+/* Flex navbar container - Modified to push nav to corner */
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: none;
+  padding: 0 2rem;
+  margin: 0;
 }
 
 /* Hamburger styles */
