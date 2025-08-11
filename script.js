@@ -66,110 +66,101 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
     
+    // Validation rules
+    const validationRules = {
+        name: {
+            required: true,
+            minLength: 2,
+            pattern: /^[a-zA-Z\s]+$/,
+            messages: {
+                required: 'Name is required.',
+                minLength: 'Name must be at least 2 characters long.',
+                pattern: 'Name should only contain letters and spaces.'
+            }
+        },
+        email: {
+            required: true,
+            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            messages: {
+                required: 'Email is required.',
+                pattern: 'Please enter a valid email address.'
+            }
+        },
+        message: {
+            required: true,
+            minLength: 10,
+            maxLength: 1000,
+            messages: {
+                required: 'Message is required.',
+                minLength: 'Message must be at least 10 characters long.',
+                maxLength: 'Message must be less than 1000 characters.'
+            }
+        }
+    };
+    
     // Form submission handler
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', handleFormSubmit);
+    
+    // Real-time validation
+    const formInputs = contactForm.querySelectorAll('input, textarea');
+    formInputs.forEach(input => {
+        input.addEventListener('blur', () => validateField(input));
+        input.addEventListener('input', () => clearFieldErrorIfVisible(input));
+    });
+    
+    // ===== FORM FUNCTIONS =====
+    function handleFormSubmit(e) {
         e.preventDefault();
         
         if (validateForm()) {
-            // Show success message
-            formSuccess.style.display = 'block';
-            
-            // Reset form
+            showFormSuccess();
             contactForm.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                formSuccess.style.display = 'none';
-            }, 5000);
-            
-            // Scroll to success message
-            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-    });
+    }
     
-    // Real-time validation on input
-    const formInputs = contactForm.querySelectorAll('input, textarea');
-    formInputs.forEach(input => {
-        input.addEventListener('blur', function() {
-            validateField(this);
-        });
-        
-        input.addEventListener('input', function() {
-            // Clear error message when user starts typing
-            const errorMessage = this.parentNode.querySelector('.error-message');
-            if (errorMessage.style.display === 'block') {
-                clearFieldError(this);
-            }
-        });
-    });
-    
-    
-    // ===== VALIDATION FUNCTIONS =====
     function validateForm() {
-        let isValid = true;
-        const formInputs = contactForm.querySelectorAll('input[required], textarea[required]');
-        
-        formInputs.forEach(input => {
-            if (!validateField(input)) {
-                isValid = false;
-            }
-        });
-        
-        return isValid;
+        const requiredFields = contactForm.querySelectorAll('input[required], textarea[required]');
+        const results = Array.from(requiredFields).map(field => validateField(field));
+        return results.every(isValid => isValid);
     }
     
     function validateField(field) {
         const fieldName = field.name;
         const fieldValue = field.value.trim();
-        let isValid = true;
-        let errorMessage = '';
+        const rules = validationRules[fieldName];
         
-        // Clear previous errors
         clearFieldError(field);
         
-        // Check if field is empty
-        if (!fieldValue) {
-            errorMessage = `${getFieldDisplayName(fieldName)} is required.`;
-            isValid = false;
-        } else {
-            // Field-specific validation
-            switch (fieldName) {
-                case 'name':
-                    if (fieldValue.length < 2) {
-                        errorMessage = 'Name must be at least 2 characters long.';
-                        isValid = false;
-                    } else if (!/^[a-zA-Z\s]+$/.test(fieldValue)) {
-                        errorMessage = 'Name should only contain letters and spaces.';
-                        isValid = false;
-                    }
-                    break;
-                    
-                case 'email':
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(fieldValue)) {
-                        errorMessage = 'Please enter a valid email address.';
-                        isValid = false;
-                    }
-                    break;
-                    
-                case 'message':
-                    if (fieldValue.length < 10) {
-                        errorMessage = 'Message must be at least 10 characters long.';
-                        isValid = false;
-                    } else if (fieldValue.length > 1000) {
-                        errorMessage = 'Message must be less than 1000 characters.';
-                        isValid = false;
-                    }
-                    break;
-            }
+        if (!rules) return true;
+        
+        const error = getValidationError(fieldValue, rules);
+        
+        if (error) {
+            showFieldError(field, error);
+            return false;
         }
         
-        // Show error if validation failed
-        if (!isValid) {
-            showFieldError(field, errorMessage);
+        return true;
+    }
+    
+    function getValidationError(value, rules) {
+        if (rules.required && !value) {
+            return rules.messages.required;
         }
         
-        return isValid;
+        if (value && rules.minLength && value.length < rules.minLength) {
+            return rules.messages.minLength;
+        }
+        
+        if (value && rules.maxLength && value.length > rules.maxLength) {
+            return rules.messages.maxLength;
+        }
+        
+        if (value && rules.pattern && !rules.pattern.test(value)) {
+            return rules.messages.pattern;
+        }
+        
+        return null;
     }
     
     function showFieldError(field, message) {
@@ -185,46 +176,55 @@ document.addEventListener('DOMContentLoaded', function() {
         field.style.borderColor = '#004d40';
     }
     
-    function getFieldDisplayName(fieldName) {
-        const displayNames = {
-            'name': 'Name',
-            'email': 'Email',
-            'message': 'Message'
-        };
-        return displayNames[fieldName] || fieldName;
+    function clearFieldErrorIfVisible(field) {
+        const errorElement = field.parentNode.querySelector('.error-message');
+        if (errorElement.style.display === 'block') {
+            clearFieldError(field);
+        }
+    }
+    
+    function showFormSuccess() {
+        formSuccess.style.display = 'block';
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        setTimeout(() => {
+            formSuccess.style.display = 'none';
+        }, 5000);
     }
     
     
     // ===== SCROLL EFFECTS =====
-    // Add active class to nav links based on scroll position
-    window.addEventListener('scroll', function() {
+    let scrollTimeout = null;
+    
+    function updateActiveNavLink() {
         const sections = document.querySelectorAll('section');
         const navLinksList = document.querySelectorAll('.nav-link');
+        const currentSection = getCurrentSection(sections);
         
-        let current = '';
+        updateNavLinkStates(navLinksList, currentSection);
+    }
+    
+    function getCurrentSection(sections) {
+        const scrollPosition = window.pageYOffset;
         
-        sections.forEach(section => {
+        for (const section of sections) {
             const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.clientHeight;
+            const sectionBottom = sectionTop + section.clientHeight;
             
-            if (window.pageYOffset >= sectionTop && 
-                window.pageYOffset < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                return section.getAttribute('id');
             }
-        });
-        
-        navLinksList.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
+        }
+        return '';
+    }
     
+    function updateNavLinkStates(navLinks, currentSection) {
+        navLinks.forEach(link => {
+            const isCurrentSection = link.getAttribute('href') === `#${currentSection}`;
+            link.classList.toggle('active', isCurrentSection);
+        });
+    }
     
-    // ===== PERFORMANCE OPTIMIZATION =====
-    // Throttle scroll events for better performance
-    let scrollTimeout;
     function throttleScroll(callback, delay) {
         if (scrollTimeout) return;
         
@@ -234,10 +234,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, delay);
     }
     
-    // Apply throttling to scroll event
+    // Apply scroll listener with throttling
     window.addEventListener('scroll', () => {
-        throttleScroll(() => {
-            // Any scroll-based functionality can go here
-        }, 16); // ~60fps
+        throttleScroll(updateActiveNavLink, 16);
     });
 });
