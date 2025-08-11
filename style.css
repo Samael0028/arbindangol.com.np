@@ -1,55 +1,211 @@
-#home {
-  background-color: #121212;
-  background-image: radial-gradient(circle at center, #333 1px, transparent 1px);
-  background-size: 40px 40px;
-  height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #eee;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-body {
-  font-family: Arial, sans-serif;
+/* Reset and base */
+* {
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
-  color: #333;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-header {
-  background: #0077cc;
-  color: white;
-  padding: 1rem 2rem;
+body {
+  background: linear-gradient(135deg, #e0f7fa, #80deea);
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #006064;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.8rem;
+  color: #e0f2f1;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #e0f2f1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffd54f;
+}
+
+/* Flex navbar container */
+.navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-nav a {
+/* Hero */
+.hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
   color: white;
-  text-decoration: none;
-  margin-left: 1.5rem;
-  font-weight: bold;
+  min-height: 70vh;
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
-
-main {
+.hero-content {
+  background: rgba(0,96,100,0.7);
   padding: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-  background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  max-width: 600px;
 }
 
-footer {
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background-color: #ffd54f;
+  color: #006064;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #ffca28;
+}
+
+/* About Section */
+.about-section {
+  background-color: #b2dfdb;
+  padding: 3rem 0;
   text-align: center;
-  padding: 1rem;
-  background: #222;
-  color: white;
-  margin-top: 2rem;
+  border-radius: 0 0 50px 50px;
+  margin-bottom: 3rem;
+}
+
+.about-section h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #004d40;
+}
+
+/* Contact Section */
+.contact-section {
+  padding-bottom: 3rem;
+}
+
+.contact-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #004d40;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #e0f2f1;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0,96,100,0.2);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #004d40;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #ffd54f;
+  outline: none;
+}
+
+.error-message {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  display: none;
+}
+
+.form-success {
+  text-align: center;
+  color: #2e7d32;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #006064;
+  color: #e0f2f1;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
 }

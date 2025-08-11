@@ -3,38 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Arbin Dangol | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="logo">MyWebsite</div>
-    <nav>
-  <a href="index.html">Home</a>
-  <a href="index.html#services">Services</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <header class="navbar">
+    <div class="container">
+      <a href="#" class="logo">ArbinDangol</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="home">
-    Welcome to My Website
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h1>Hello, I'm Arbin Dangol</h1>
+      <p>IT professional & web developer passionate about building clean and modern websites.</p>
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+    </div>
   </section>
 
-  <main>
-    <section id="services">
-      <h2>Our Services</h2>
-      <p>We provide web development, design, and consulting services tailored to your needs.</p>
-    </section>
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        I specialize in creating responsive, user-friendly websites with clean code and elegant designs.
+      </p>
+    </div>
+  </section>
 
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Email: arbin0028@gmail.com</p>
-      <p>Phone: +977 980-6129751</p>
-    </section>
-  </main>
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required />
+          <small class="error-message"></small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+          <small class="error-message"></small>
+        </div>
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+          <small class="error-message"></small>
+        </div>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+      <p id="formSuccess" class="form-success" style="display:none;">Thanks for reaching out! I'll get back to you soon.</p>
+    </div>
+  </section>
 
-  <footer>
-    &copy; 2025 Arbin Dangol. All rights reserved.
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Arbin Dangol. All rights reserved.</p>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
