@@ -1,71 +1,66 @@
-// script.js
+const navLinks = document.getElementById("nav-links");
+const menuBtn = document.getElementById("menu-btn");
+const menuBtnIcon = menuBtn.querySelector("i");
 
-// ========== Hamburger Menu ==========
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+menuBtn.addEventListener("click", (e) => {
+  navLinks.classList.toggle("open");
 
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('active');
-  hamburger.setAttribute(
-    'aria-expanded',
-    navMenu.classList.contains('active')
+  const isOpen = navLinks.classList.contains("open");
+  menuBtnIcon.setAttribute(
+    "class",
+    isOpen ? "ri-close-line" : "ri-menu-3-line"
   );
 });
 
-// ========== Dark Mode ==========
-const darkModeToggle = document.getElementById('darkModeToggle');
-const body = document.body;
-
-// Load saved preference
-if (localStorage.getItem('darkMode') === 'enabled') {
-  body.classList.add('dark-mode');
-  darkModeToggle.textContent = '☀️';
-}
-
-darkModeToggle.addEventListener('click', () => {
-  body.classList.toggle('dark-mode');
-  
-  if (body.classList.contains('dark-mode')) {
-    localStorage.setItem('darkMode', 'enabled');
-    darkModeToggle.textContent = '☀️';
-  } else {
-    localStorage.setItem('darkMode', 'disabled');
-    darkModeToggle.textContent = '🌙';
-  }
+navLinks.addEventListener("click", (e) => {
+  navLinks.classList.remove("open");
+  menuBtnIcon.setAttribute("class", "ri-menu-3-line");
 });
 
-// ========== Contact Form ==========
-const contactForm = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
+const scrollRevealOption = {
+  distance: "50px",
+  origin: "bottom",
+  duration: 1000,
+};
 
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+// header container
+ScrollReveal().reveal(".header__content h1", {
+  ...scrollRevealOption,
+});
 
-  let valid = true;
-  document.querySelectorAll('.error-message').forEach(msg => msg.textContent = '');
+ScrollReveal().reveal(".header__content .section__description", {
+  ...scrollRevealOption,
+  delay: 500,
+});
 
-  const name = document.getElementById('name');
-  const email = document.getElementById('email');
-  const message = document.getElementById('message');
+ScrollReveal().reveal(".header__content .header__btn", {
+  ...scrollRevealOption,
+  delay: 1000,
+});
 
-  if (name.value.trim() === '') {
-    name.nextElementSibling.textContent = 'Please enter your name.';
-    valid = false;
-  }
-  if (!email.value.match(/^[^@]+@[^@]+\.[^@]+$/)) {
-    email.nextElementSibling.textContent = 'Please enter a valid email.';
-    valid = false;
-  }
-  if (message.value.trim().length < 10) {
-    message.nextElementSibling.textContent = 'Message must be at least 10 characters.';
-    valid = false;
-  }
+// about container
+ScrollReveal().reveal(".about__content .section__header", {
+  ...scrollRevealOption,
+});
 
-  if (valid) {
-    // For now: send via mailto (can be replaced with backend API)
-    window.location.href = `mailto:youremail@example.com?subject=Contact from ${encodeURIComponent(name.value)}&body=${encodeURIComponent(message.value)}`;
+ScrollReveal().reveal(".about__content .section__description", {
+  ...scrollRevealOption,
+  delay: 500,
+});
 
-    formSuccess.style.display = 'block';
-    contactForm.reset();
-  }
+ScrollReveal().reveal(".about__content .about__btn", {
+  ...scrollRevealOption,
+  delay: 1000,
+});
+
+// service container
+ScrollReveal().reveal(".service__card", {
+  ...scrollRevealOption,
+  interval: 500,
+});
+
+// portfolio container
+ScrollReveal().reveal(".portfolio__card", {
+  duration: 1000,
+  interval: 500,
 });
