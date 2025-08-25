@@ -1,66 +1,98 @@
-const navLinks = document.getElementById("nav-links");
-const menuBtn = document.getElementById("menu-btn");
-const menuBtnIcon = menuBtn.querySelector("i");
+// Smooth scrolling functions
+function scrollToContact() {
+  document.getElementById("contact").scrollIntoView({
+    behavior: "smooth",
+  })
+}
 
-menuBtn.addEventListener("click", (e) => {
-  navLinks.classList.toggle("open");
+function scrollToProjects() {
+  document.getElementById("projects").scrollIntoView({
+    behavior: "smooth",
+  })
+}
 
-  const isOpen = navLinks.classList.contains("open");
-  menuBtnIcon.setAttribute(
-    "class",
-    isOpen ? "ri-close-line" : "ri-menu-3-line"
-  );
-});
+// Email client function
+function openEmailClient() {
+  window.location.href =
+    "mailto:your.email@example.com?subject=Network Infrastructure Inquiry&body=Hello, I would like to discuss my networking needs."
+}
 
-navLinks.addEventListener("click", (e) => {
-  navLinks.classList.remove("open");
-  menuBtnIcon.setAttribute("class", "ri-menu-3-line");
-});
+// Add scroll animations
+function animateOnScroll() {
+  const cards = document.querySelectorAll(".skill-card, .project-card, .testimonial-card")
 
-const scrollRevealOption = {
-  distance: "50px",
-  origin: "bottom",
-  duration: 1000,
-};
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1"
+          entry.target.style.transform = "translateY(0)"
+        }
+      })
+    },
+    {
+      threshold: 0.1,
+    },
+  )
 
-// header container
-ScrollReveal().reveal(".header__content h1", {
-  ...scrollRevealOption,
-});
+  cards.forEach((card) => {
+    card.style.opacity = "0"
+    card.style.transform = "translateY(30px)"
+    card.style.transition = "opacity 0.6s ease, transform 0.6s ease"
+    observer.observe(card)
+  })
+}
 
-ScrollReveal().reveal(".header__content .section__description", {
-  ...scrollRevealOption,
-  delay: 500,
-});
+// Initialize animations when page loads
+document.addEventListener("DOMContentLoaded", () => {
+  animateOnScroll()
 
-ScrollReveal().reveal(".header__content .header__btn", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
+  // Add click handlers for social links
+  const socialLinks = document.querySelectorAll(".social-links a")
+  socialLinks.forEach((link) => {
+    if (link.textContent.includes("LinkedIn")) {
+      link.href = "https://linkedin.com/in/your-profile"
+      link.target = "_blank"
+    } else if (link.textContent.includes("GitHub")) {
+      link.href = "https://github.com/your-username"
+      link.target = "_blank"
+    }
+  })
+})
 
-// about container
-ScrollReveal().reveal(".about__content .section__header", {
-  ...scrollRevealOption,
-});
+// Add mobile menu functionality if needed
+function toggleMobileMenu() {
+  // This can be expanded if you add a navigation menu later
+  console.log("Mobile menu toggle")
+}
 
-ScrollReveal().reveal(".about__content .section__description", {
-  ...scrollRevealOption,
-  delay: 500,
-});
+// Form validation (if you add a contact form later)
+function validateContactForm(formData) {
+  const email = formData.get("email")
+  const message = formData.get("message")
 
-ScrollReveal().reveal(".about__content .about__btn", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
+  if (!email || !email.includes("@")) {
+    alert("Please enter a valid email address")
+    return false
+  }
 
-// service container
-ScrollReveal().reveal(".service__card", {
-  ...scrollRevealOption,
-  interval: 500,
-});
+  if (!message || message.length < 10) {
+    alert("Please enter a message with at least 10 characters")
+    return false
+  }
 
-// portfolio container
-ScrollReveal().reveal(".portfolio__card", {
-  duration: 1000,
-  interval: 500,
-});
+  return true
+}
+
+// Smooth reveal animation for hero section
+window.addEventListener("load", () => {
+  const heroContent = document.querySelector(".hero-content")
+  heroContent.style.opacity = "0"
+  heroContent.style.transform = "translateY(20px)"
+
+  setTimeout(() => {
+    heroContent.style.transition = "opacity 1s ease, transform 1s ease"
+    heroContent.style.opacity = "1"
+    heroContent.style.transform = "translateY(0)"
+  }, 100)
+})

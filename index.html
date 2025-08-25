@@ -1,179 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Arbin Dangol | Portfolio</title>
-  </head>
-  <body>
-    <nav>
-      <div class="nav__bar">
-        <a href="#"><span class="logo nav__logo">A</span> Arbin</a>
-        <div class="nav__menu__btn" id="menu-btn">
-          <i class="ri-menu-3-line"></i>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Networking Specialist - Professional Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <img src="professional-headshot-of-it-networking-specialist.png" alt="Professional headshot" class="profile-image">
+                <h1 class="hero-title">IT Networking Specialist</h1>
+                <p class="hero-description">
+                    Expert in network infrastructure, technical support, and seamless communication. Connecting businesses
+                    through reliable, scalable networking solutions.
+                </p>
+                <div class="badges">
+                    <span class="badge">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="16" y="16" width="6" height="6" rx="1"/>
+                            <rect x="2" y="16" width="6" height="6" rx="1"/>
+                            <rect x="9" y="2" width="6" height="6" rx="1"/>
+                            <path d="m5 16-3-3 3-3"/>
+                            <path d="m11.5 12 3-3 3 3"/>
+                            <path d="m18 16 3-3-3-3"/>
+                        </svg>
+                        Network Infrastructure
+                    </span>
+                    <span class="badge">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                        </svg>
+                        Technical Support
+                    </span>
+                    <span class="badge">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="m22 21-3-3m0 0-3-3m3 3 3-3m-3 3-3 3"/>
+                        </svg>
+                        Client Communication
+                    </span>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToContact()">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        Get In Touch
+                    </button>
+                    <button class="btn btn-outline" onclick="scrollToProjects()">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m18 13 6-6-6-6"/>
+                            <path d="M6 7h14"/>
+                        </svg>
+                        View Projects
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-      <ul class="nav__links" id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#service">Service</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact" class="btn">Contact</a></li>
-      </ul>
-      <a href="#contact" class="btn btn__large">Contact</a>
-    </nav>
-    <header class="section__container header__container" id="home">
-      <div class="header__image">
-        <img src="assets/header.JPG" alt="header" />
-      </div>
-      <div class="header__content">
-        <div>
-          <h1>Arbin<br />IT Officer<br />Network Admin<br />Technical Support</h1>
-        </div>
-        <p class="section__description">
-          I'm a dedicated IT Officer with a focus on Network Administration, Technical Support, and enhancing overall IT Security. My journey in the IT realm began years ago, and I've since honed my skills in Server/Network Management and System Performance Monitoring. I thrive on turning technical challenges into seamless solutions, ensuring robust and efficient IT environments.
-        </p>
-        <div class="header__btn">
-          <button class="btn">Hire Me Now</button>
-        </div>
-      </div>
-    </header>
-
-    <section class="section__container about__container" id="about">
-      <div class="about__image">
-        <img src="assets/bg.png" alt="bg" class="about__bg-1" />
-        <img src="assets/bg.png" alt="bg" class="about__bg-2" />
-        <img src="assets/about.jpg" alt="about" class="about__img" />
-      </div>
-      <div class="about__content">
-        <h2 class="section__header">Bit About Me</h2>
-        <p class="section__description">
-          A passionate IT Officer with expertise in Technical Support, Network Administration, and Customer Service. My journey in IT began with a fascination for solving technical puzzles and ensuring smooth system operations, and it has evolved into a career where I blend strategic planning with hands-on problem-solving. With a focus on IT Security and a commitment to staying updated with the latest industry trends, I'm dedicated to creating IT solutions that not only meet but exceed expectations. I specialize in Server/Network Management and System Performance Monitoring, always aiming to optimize IT infrastructure.
-        </p>
-        <div class="about__btn">
-          <button class="btn">Download CV</button>
-        </div>
-      </div>
     </section>
 
-    <section class="section__container service__container" id="service">
-      <h2 class="section__header">My Best Services</h2>
-      <div class="service__grid">
-        <div class="service__card">
-          <span><i class="ri-network-line"></i></span>
-          <h4>Network Setup & Management</h4>
-          <p>
-            I provide comprehensive network setup services, including configuration, optimization, and ongoing management to ensure seamless connectivity and performance.
-          </p>
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Core Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="16" y="16" width="6" height="6" rx="1"/>
+                        <rect x="2" y="16" width="6" height="6" rx="1"/>
+                        <rect x="9" y="2" width="6" height="6" rx="1"/>
+                        <path d="m5 16-3-3 3-3"/>
+                        <path d="m11.5 12 3-3 3 3"/>
+                        <path d="m18 16 3-3-3-3"/>
+                    </svg>
+                    <h3>Network Design</h3>
+                    <p>Scalable network architecture and infrastructure planning</p>
+                </div>
+
+                <div class="skill-card">
+                    <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                    </svg>
+                    <h3>Security Solutions</h3>
+                    <p>Network security implementation and monitoring</p>
+                </div>
+
+                <div class="skill-card">
+                    <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/>
+                    </svg>
+                    <h3>Performance Optimization</h3>
+                    <p>Network performance tuning and troubleshooting</p>
+                </div>
+
+                <div class="skill-card">
+                    <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="m22 21-3-3m0 0-3-3m3 3 3-3m-3 3-3 3"/>
+                    </svg>
+                    <h3>Client Support</h3>
+                    <p>Technical support and clear communication</p>
+                </div>
+            </div>
         </div>
-        <div class="service__card">
-          <span><i class="ri-palette-line"></i></span>
-          <h4>Graphic Designing</h4>
-          <p>
-            I offer creative graphic design services, bringing your visions to life with compelling visuals for branding, marketing, and digital media.
-          </p>
-        </div>
-        <div class="service__card">
-          <span><i class="ri-code-s-slash-line"></i></span>
-          <h4>Web Development</h4>
-          <p>
-            From static websites to dynamic web applications, I build responsive and user-friendly web solutions tailored to your specific needs.
-          </p>
-        </div>
-        <div class="service__card">
-          <span><i class="ri-customer-service-2-line"></i></span>
-          <h4>Technical Support</h4>
-          <p>
-            I provide reliable technical support, troubleshooting hardware and software issues, and offering timely solutions to keep your systems running smoothly.
-          </p>
-        </div>
-        <div class="service__card">
-          <span><i class="ri-shield-check-line"></i></span>
-          <h4>IT Security Solutions</h4>
-          <p>
-            I implement robust IT security measures, including vulnerability assessments and threat mitigation strategies, to protect your data and systems.
-          </p>
-        </div>
-        <div class="service__card">
-          <span><i class="ri-server-line"></i></span>
-          <h4>Server/Network Performance Monitoring</h4>
-          <p>
-            I proactively monitor server and network performance, identifying bottlenecks and implementing solutions to ensure optimal efficiency and uptime.
-          </p>
-        </div>
-      </div>
     </section>
 
-    <section class="section__container portfolio__container" id="portfolio">
-      <h2 class="section__header">My Portfolio</h2>
-      <p class="section__description">
-        Explore a showcase of my diverse projects, demonstrating my skills in
-        IT solutions, network administration, graphic design, and web development. Each project reflects my passion
-        for creating impactful and innovative digital experiences.
-      </p>
-      <div class="portfolio__grid">
-        <div class="portfolio__card">
-          <img src="assets/project-1.jpg" alt="portfolio" />
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Enterprise Network Redesign</h3>
+                        <p class="project-subtitle">Complete infrastructure overhaul for 500+ employee company</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Designed and implemented a scalable network infrastructure that improved performance by 40% and reduced downtime to less than 0.1%.</p>
+                        <div class="project-tags">
+                            <span class="tag">Cisco</span>
+                            <span class="tag">VLAN</span>
+                            <span class="tag">Redundancy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Security Implementation</h3>
+                        <p class="project-subtitle">Multi-layered security solution for financial services</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Implemented comprehensive security protocols including firewalls, VPNs, and intrusion detection systems for a financial institution.</p>
+                        <div class="project-tags">
+                            <span class="tag">Firewall</span>
+                            <span class="tag">VPN</span>
+                            <span class="tag">IDS/IPS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Remote Work Infrastructure</h3>
+                        <p class="project-subtitle">Seamless remote connectivity for distributed teams</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Deployed secure remote access solutions enabling 200+ employees to work efficiently from anywhere with enterprise-grade security.</p>
+                        <div class="project-tags">
+                            <span class="tag">VPN</span>
+                            <span class="tag">Cloud</span>
+                            <span class="tag">Zero Trust</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="portfolio__card">
-          <img src="assets/project-2.jpg" alt="portfolio" />
-        </div>
-        <div class="portfolio__card">
-          <img src="assets/project-3.jpg" alt="portfolio" />
-        </div>
-        <div class="portfolio__card">
-          <img src="assets/project-4.jpg" alt="portfolio" />
-        </div>
-        <div class="portfolio__card">
-          <img src="assets/project-5.jpg" alt="portfolio" />
-        </div>
-        <div class="portfolio__card">
-          <img src="assets/project-6.jpg" alt="portfolio" />
-        </div>
-      </div>
-      <div class="portfolio__banner">
-        <div class="portfolio__banner__card">
-          <span><i class="ri-macbook-line"></i></span>
-          <h4>150+ Projects</h4>
-          <p>Delivered</p>
-        </div>
-        <div class="portfolio__banner__card">
-          <span><i class="ri-discuss-line"></i></span>
-          <h4>1500+ Happy</h4>
-          <p>Customers</p>
-        </div>
-        <div class="portfolio__banner__card">
-          <span><i class="ri-heart-fill"></i></span>
-          <h4>2700+ Lovely</h4>
-          <p>Feedbacks</p>
-        </div>
-      </div>
     </section>
 
-    <section class="section__container contact__container" id="contact">
-      <div class="logo">A</div>
-      <h2 class="section__header">Let's Talk With Me!</h2>
-      <p class="section__description">
-        An open invitation to connect and explore collaborative opportunities
-        on my personal portfolio website.
-      </p>
-      <div class="contact__socials">
-        <a href="https://www.linkedin.com/in/arbin-dangol-6787b8281/"><i class="ri-linkedin-fill"></i></a>
-        <a href="https://web.facebook.com/Samael028"><i class="ri-facebook-fill"></i></a>
-        <a href="#"><i class="ri-instagram-line"></i></a>
-        <a href="#"><i class="ri-pinterest-line"></i></a>
-      </div>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Client Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Outstanding technical expertise combined with excellent communication skills. The network upgrade was completed on time and exceeded our performance expectations."</p>
+                    <div class="testimonial-author">
+                        <p class="author-name">Sarah Johnson</p>
+                        <p class="author-title">IT Director, TechCorp</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Professional, reliable, and incredibly knowledgeable. The security implementation has given us complete peace of mind. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <p class="author-name">Michael Chen</p>
+                        <p class="author-title">CEO, SecureFinance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="contact-description">
+                Ready to enhance your network infrastructure? Let's discuss how I can help your business achieve reliable,
+                secure, and scalable networking solutions.
+            </p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <h3>Email</h3>
+                    <p>your.email@example.com</p>
+                </div>
+
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <h3>Phone</h3>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <h3>Location</h3>
+                    <p>Your City, State</p>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="btn btn-outline">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect x="2" y="9" width="4" height="12"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="#" class="btn btn-outline">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    </svg>
+                    GitHub
+                </a>
+                <button class="btn btn-primary" onclick="openEmailClient()">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    Send Message
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
-      Copyright © 2025 Arbin Dangol. All rights reserved.
+        <div class="container">
+            <p>&copy; 2025 IT Networking Specialist. Professional networking solutions for your business.</p>
+        </div>
     </footer>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="main.js"></script>
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
