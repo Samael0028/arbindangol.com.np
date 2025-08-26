@@ -14,7 +14,7 @@ function scrollToProjects() {
 // Email client function
 function openEmailClient() {
   window.location.href =
-    "mailto:your.email@example.com?subject=Network Infrastructure Inquiry&body=Hello, I would like to discuss my networking needs."
+    "mailto:arbin0028@gmail.com?subject=Network Infrastructure Inquiry&body=Hello, I would like to discuss my networking needs."
 }
 
 // Add scroll animations
@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const socialLinks = document.querySelectorAll(".social-links a")
   socialLinks.forEach((link) => {
     if (link.textContent.includes("LinkedIn")) {
-      link.href = "https://linkedin.com/in/your-profile"
+      link.href = "https://www.linkedin.com/in/arbin-dangol-6787b8281/"
       link.target = "_blank"
     } else if (link.textContent.includes("GitHub")) {
-      link.href = "https://github.com/your-username"
+      link.href = "https://github.com/Samael0028"
       link.target = "_blank"
     }
   })
